@@ -1,0 +1,22 @@
+<head>
+  <title>scheduleac</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> loginButtons}}
+  {{> client}}
+</body>
+
+
+
+<template name="client">
+
+	<select id="post">
+	  <option value="AC">AC</option>
+	  <option value="Health">Health</option>
+	</select>
+
+	<button>Submit</button>
+	<input type="text" class="form-control" id="date">
+</template>
