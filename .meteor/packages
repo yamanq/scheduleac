@@ -22,3 +22,5 @@ rajit:bootstrap3-datepicker
 twbs:bootstrap
 accounts-google
 accounts-ui
+ongoworks:security
+percolate:synced-cron

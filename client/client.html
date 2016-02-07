@@ -11,12 +11,14 @@
 
 
 <template name="client">
+		<input type="text" class="form-control" id="date">
+	
+	{{#if allowed}}
+		<select id="post">
+		  <option value="AC">AC</option>
+		  <option value="Health">Health</option>
+		</select>
 
-	<select id="post">
-	  <option value="AC">AC</option>
-	  <option value="Health">Health</option>
-	</select>
-
-	<button>Submit</button>
-	<input type="text" class="form-control" id="date">
+		<button>Submit</button>
+	{{/if}}
 </template>
