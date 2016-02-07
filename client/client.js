@@ -2,8 +2,6 @@ var allowedu = {};
 allowedu["ybq987@gmail.com"] = true;
 allowedu["dweinger@bloomfield.org"] = true;
 
-var done = false;
-
 Meteor.subscribe('schedule');
 
 
@@ -30,17 +28,14 @@ Template.client.helpers({
 
 Template.client.events({
 	"focus input": function() {
-		if (!done) {
-			today = new Date()
-		    $('#date').datepicker({
-		    	startDate: today.toLocaleDateString(),
-		    	orientation: "top auto",
-		    	daysOfWeekDisabled: "0,6",
-		    	autoclose: true,
-		    	todayHighlight: true
-			});
-			done = true;
-		}
+		today = new Date()
+		$('#date').datepicker({
+		    startDate: today.toLocaleDateString(),
+		    orientation: "top auto",
+		    daysOfWeekDisabled: "0,6",
+		    autoclose: true,
+		    todayHighlight: true
+		});
 	},
 
 	"click button": function() {
