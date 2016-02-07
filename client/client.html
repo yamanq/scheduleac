@@ -9,10 +9,30 @@
 </body>
 
 
+<template name="day">
+	<p>{{pretext}} {{aftertext}} </p>
+</template>
+
+<template name="recent">
+	<p>{{pretext}} {{aftertext}} </p>
+</template>
+
 
 <template name="client">
-		<input type="text" class="form-control" id="date">
-	
+	<input type="text" class="form-control" id="date">
+	<div>
+		{{#each mostrecent}}
+			{{> recent}}
+		{{/each}}
+	</div>
+	<div>
+		{{#each sched}}
+			<div>
+				{{> day}}
+			</div>
+		{{/each}}
+	</div>
+
 	{{#if allowed}}
 		<select id="post">
 		  <option value="AC">AC</option>

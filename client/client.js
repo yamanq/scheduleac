@@ -6,14 +6,16 @@ var done = false;
 
 Meteor.subscribe('schedule');
 
-Template.client.rendered=function() {
-	
-}
-
-
-// schedule.find({}, {sort: {timestamp: 1}, limit: 2}).fetch()
 
 Template.client.helpers({
+
+	sched: function() {
+		return schedule.find({}, {sort: {timestamp: 1}, limit: 5}).fetch();
+	},
+
+	mostrecent: function() {
+		return schedule.find({}, {sort: {timestamp: 1}, limit: 1}).fetch();
+	},
 
 	allowed: function() {
 		if (!(Meteor.user() === undefined) && Meteor.user().services.google.email in allowedu) {
@@ -24,7 +26,7 @@ Template.client.helpers({
 	} 
 
 
-})
+});
 
 Template.client.events({
 	"focus input": function() {
@@ -47,4 +49,22 @@ Template.client.events({
 		post = document.getElementById('post').value;
 		Meteor.call('add_button', this, pre, post);
 	}
-})
+});
+
+Template.day.helpers({
+	pretext: function() {
+		return this.pretext;
+	},
+	aftertext: function() {
+		return this.aftertext;
+	}
+});
+
+Template.recent.helpers({
+	pretext: function() {
+		return this.pretext;
+	},
+	aftertext: function() {
+		return this.aftertext;
+	}
+});
