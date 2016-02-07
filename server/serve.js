@@ -3,7 +3,6 @@ allowed["ybq987@gmail.com"] = true;
 allowed["dweinger@bloomfield.org"] = true;
 
 
-schedule.remove({})
 schedule.permit(['insert', 'update', 'remove']).never().apply();
 
 SyncedCron.add({
