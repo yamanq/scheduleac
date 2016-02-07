@@ -31,12 +31,13 @@ Meteor.methods({
 			date.setMonth(madate[0]);
 			date.setDate(madate[1]);
 			date.setFullYear(madate[2]);
-
-			schedule.insert({
-		      "pretext": date.toDateString().slice(0,date.length),
-		      "aftertext": post,
-		      "timestamp": date
-		    });
+			if (pre !== undefined && post !== undefined) {
+				schedule.insert({
+				      "pretext": date.toDateString().slice(0,date.length),
+				      "aftertext": post,
+				      "timestamp": date
+				});
+			}
 		}
 	}
 })
