@@ -19,7 +19,6 @@
 
 
 <template name="client">
-	<input type="text" class="form-control" id="date">
 	<div>
 		{{#each mostrecent}}
 			{{> recent}}
@@ -34,6 +33,7 @@
 	</div>
 
 	{{#if allowed}}
+	<input type="text" class="form-control" id="date">
 		<select id="post">
 		  <option value="AC">AC</option>
 		  <option value="Health">Health</option>
