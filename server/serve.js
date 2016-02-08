@@ -1,6 +1,7 @@
 var allowed = {};
 allowed["ybq987@gmail.com"] = true;
 allowed["dweinger@bloomfield.org"] = true;
+allowed["ksjdragon@gmail.com"] = true;
 
 
 schedule.permit(['insert', 'update', 'remove']).never().apply();

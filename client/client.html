@@ -1,44 +1,52 @@
 <head>
-  <title>scheduleac</title>
+ 	<title>AC/Health Schedule</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-  {{> loginButtons}}
-  {{> client}}
+ 	{{> client}}
 </body>
 
 
 <template name="day">
-	<p>{{pretext}} {{aftertext}} </p>
+	<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p>
 </template>
 
 <template name="recent">
-	<p>{{pretext}} {{aftertext}} </p>
+	<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p>
 </template>
 
-
 <template name="client">
-	<div>
-		{{#each mostrecent}}
-			{{> recent}}
-		{{/each}}
+	<div class="pulltab"></div>
+	<div class="scale">
+		{{> sidebar}}
 	</div>
-	<div>
+	<div class="scheduleList">
+
+		{{#each mostrecent}}
+		<div class="recent eachDay">
+			{{> recent}}
+		</div>
+		{{/each}}
+
 		{{#each sched}}
-			<div>
+			<div class="eachDay">
 				{{> day}}
 			</div>
 		{{/each}}
 	</div>
+</template>
 
-	{{#if allowed}}
-	<input type="text" class="form-control" id="date">
-		<select id="post">
-		  <option value="AC">AC</option>
-		  <option value="Health">Health</option>
-		</select>
-
-		<button>Submit</button>
-	{{/if}}
+<template name="sidebar">
+	<div class="sidebar">
+	<h1>AC/Health Schedule</h1>
+		{{> loginButtons}}
+			{{#if allowed}}
+			<input type="text" class="form-control" id="date">
+				<select id="post">
+				  <option value="AC">AC</option>
+				  <option value="Health">Health</option>
+				</select>
+				<button>Submit</button>
+			{{/if}}
+	</div>
 </template>
