@@ -61,7 +61,7 @@ Template.day.helpers({
 		    nextWeek: 'dddd',
 		    lastDay: '[Yesterday]',
 		    lastWeek: '[Last] dddd',
-		    sameElse: 'DD/MM/YYYY'
+		    sameElse: 'MM/DD/YYYY'
 		});
 		return date;
 	},
