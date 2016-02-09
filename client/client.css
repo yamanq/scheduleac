@@ -28,7 +28,7 @@ h1 {
 
 .eachDay {
 	font-family: Lato;
-	font-color: #353535;
+	color: #353535;
 	max-width:30%;
 	background-color: #136FB5;
 	box-shadow: 4px 5px 3px 2px #444;
@@ -54,12 +54,13 @@ h1 {
 }
 
 .recent {
-	font-color: #353535;
+	color: #353535;
 	background-color: #5BEF78;
+	max-width:30%;
 }
 
 .scheduleList {
-	 margin-top: 20%;
+	 margin-top: 10%;
 }
 
 .type {
@@ -120,3 +121,14 @@ h1 {
 	-ms-transition: transform 0.3s ease; 
 	transition: transform 0.3s ease;
 }	
+
+.fa {
+	-webkit-transition: color 0.5s ease;
+	-moz-transition: color 0.5s ease;
+	-ms-transition: color 0.5s ease; 
+	transition: color 0.5s ease;
+}
+
+.fa:hover {
+	color: #E14C2B;
+}

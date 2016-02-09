@@ -6,11 +6,11 @@ allowedu["ksjdragon@gmail.com"]= true;
 
 Meteor.subscribe('schedule');
 
-
 Template.client.helpers({
 
 	sched: function() {
-		return schedule.find({}, {sort: {timestamp: 1}, limit: 5}).fetch();
+		beforeslice = schedule.find({}, {sort: {timestamp: 1}, limit: 5}).fetch();
+		return beforeslice.slice(1, beforeslice.length);
 	},
 
 	mostrecent: function() {
@@ -22,6 +22,7 @@ Template.client.helpers({
 Template.client.events({
 	"click button": function() {
 		pre = document.getElementById("date").value;
+		console.log(pre);
 		document.getElementById("date").value = "";
 		post = document.getElementById('post').value;
 		Meteor.call('add_button', this, pre, post);
@@ -53,19 +54,67 @@ Template.client.events({
 
 Template.day.helpers({
 	pretext: function() {
-		return this.pretext;
+		date = moment(this.pretext);
+		date = date.calendar(null, {
+		    sameDay: '[Today]',
+		    nextDay: '[Tomorrow]',
+		    nextWeek: 'dddd',
+		    lastDay: '[Yesterday]',
+		    lastWeek: '[Last] dddd',
+		    sameElse: 'DD/MM/YYYY'
+		});
+		return date;
 	},
+
 	aftertext: function() {
 		return this.aftertext;
+	},
+	
+	allowed: function() {
+		if (!(Meteor.user() === undefined) && Meteor.user().services.google.email in allowedu) {
+    		return true;
+		} else {
+			return false;
+		}
 	}
 });
 
+Template.day.events({
+	'click .fa' : function() {
+		Meteor.call('remove', this);
+	}
+})
+
+Template.recent.events({
+	'click .fa' : function() {
+		Meteor.call('remove', this);
+	}
+})
+
 Template.recent.helpers({
 	pretext: function() {
-		return this.pretext;
+		date = moment(this.pretext);
+		date = date.calendar(null, {
+		    sameDay: '[Today]',
+		    nextDay: '[Tomorrow]',
+		    nextWeek: 'dddd',
+		    lastDay: '[Yesterday]',
+		    lastWeek: '[Last] dddd',
+		    sameElse: 'DD/MM/YYYY'
+		});
+		return date
 	},
+
 	aftertext: function() {
 		return this.aftertext;
+	},
+
+	allowed: function() {
+		if (!(Meteor.user() === undefined) && Meteor.user().services.google.email in allowedu) {
+    		return true;
+		} else {
+			return false;
+		}
 	}
 });
 

@@ -24,3 +24,5 @@ accounts-google
 accounts-ui
 ongoworks:security
 percolate:synced-cron
+momentjs:moment
+fortawesome:fontawesome
