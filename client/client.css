@@ -21,6 +21,11 @@ h1 {
 	font-size: 300%;
 	text-align: center;
 }
+
+a:hover {
+	text-decoration: none;
+}
+
 #date {
 	margin-top:1%;
 	max-width: 60%;
@@ -135,4 +140,10 @@ h1 {
 
 .fa:hover {
 	color: #FF746B;
+}
+
+.about {
+	margin-top: 217%;
+	margin-left: 3.5%;
+	font-size: 110%;
 }
