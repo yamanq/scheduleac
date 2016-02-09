@@ -19,7 +19,6 @@ body {
 h1 {
 	font-family: Lato;
 	font-size: 300%;
-	text-align: center;
 }
 
 a:hover {
@@ -34,7 +33,7 @@ a:hover {
 .eachDay {
 	font-family: Lato;
 	color: #353535;
-	max-width:30%;
+	max-width: 30%;
 	background-color: #136FB5;
 	box-shadow: 4px 5px 3px 2px #444;
 	margin-left: auto;
