@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Lato';
-    src: url('./fonts/lato-light.woff');
+    src: url('./lato-light.woff');
 }
 
 html {
@@ -12,7 +12,7 @@ html {
 }
 
 body {
-	background-color: #F4E1EC;
+	background-image: url('./bg.png');
 	overflow: hidden;
 }
 
@@ -103,15 +103,15 @@ h1 {
 
 	background-color: #FF746B;
 	box-shadow: 2px 2px 5px 3px #444;
-	padding-left: 5%;
+	padding-left: 7%;
 	padding-right: 2%;
 	padding-top: 2%;
 }
 
 .scale {
 	font-family: Lato;
-	min-height:100%;
-	min-width:17%;
+	min-height: 100%;
+	min-width: 17%;
 	position: absolute;
 	top: 0;
 	left: -20%;
@@ -130,5 +130,5 @@ h1 {
 }
 
 .fa:hover {
-	color: #E14C2B;
+	color: #FF746B;
 }
