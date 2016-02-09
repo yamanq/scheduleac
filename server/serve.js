@@ -26,20 +26,18 @@ SyncedCron.start();
 Meteor.methods({
 
 	add_button: function(chrome, pre, post) {
-		if (Meteor.user() != undefined && Meteor.user().services.google.email in allowed) {
+		if ((Meteor.user() != undefined) && (Meteor.user().services.google.email in allowed) && !(pre === "")) {
 			madate = pre.split("/");
 			date = new Date();
 			date.setMonth(madate[0]);
 			date.setDate(madate[1]);
 			date.setFullYear(madate[2]);
 			mymoment = moment(pre.replace("/", "-"), "MM-DD-YYYY").toISOString().split("T")[0];
-			if (pre !== undefined && post !== undefined) {
-				schedule.insert({
-				      "pretext": mymoment,
-				      "aftertext": post,
-				      "timestamp": date
-				});
-			}
+			schedule.insert({
+			      "pretext": mymoment,
+			      "aftertext": post,
+			      "timestamp": date
+			});
 		}
 	},
 	remove: function(chrome) {
