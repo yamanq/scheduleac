@@ -21,16 +21,55 @@ h1 {
 	font-size: 300%;
 }
 
-a:hover {
-	text-decoration: none;
-}
-
 #date {
-	margin-top:1%;
-	max-width: 60%;
+	margin-top:4%;
+	margin-left: 3.5%;
+	max-width: 50%;
 }
 
+#post {
+	font-size: 150%;
+	float: right;
+	display: inline;
+	margin-top: -10.5%;
+	margin-right: 8%;
+	width: 35%;
+	min-height: 50%;
+}
+
+#button {
+	margin-left: 3.5%;
+	margin-top: 3%;
+	font-size: 200%;
+	width: 88%;
+	color: #fff;
+	background-color: #DD655D;
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: left;
+	outline: none;
+
+	-webkit-transition: background-color 0.5s ease;
+	-moz-transition: background-color 0.5s ease;
+	-ms-transition: background-color 0.5s ease; 
+	transition: background-color 0.5s ease;
+}
+
+#button:hover {
+	background-color: #EA4D4D;
+}
+
+.login-display-name {
+	display: none !important;
+}
+.login-button {
+	margin-left: 20% !important;
+	width: 100% !important;
+	height: 28px !important;
+}
 .eachDay {
+	position: relative;
 	font-family: Lato;
 	color: #353535;
 	max-width: 30%;
@@ -127,14 +166,15 @@ a:hover {
 }	
 
 .fa {
+	float:right;
+	clear:right;
+	margin-top: -50%;
+	margin-right:-18%;
+
 	-webkit-transition: color 0.5s ease;
 	-moz-transition: color 0.5s ease;
 	-ms-transition: color 0.5s ease; 
 	transition: color 0.5s ease;
-	float: right;
-	margin-top: -59.5%;
-	margin-right: -17.9%;
-
 }
 
 .fa:hover {
@@ -142,7 +182,23 @@ a:hover {
 }
 
 .about {
-	margin-top: 217%;
+	position: absolute;
+	bottom: 3%;
+	max-width: 70%;
 	margin-left: 3.5%;
 	font-size: 110%;
+}
+
+.github {
+	font-size: 120%;
+
+	-webkit-transition: color 0.3s ease;
+	-moz-transition: color 0.3s ease;
+	-ms-transition: color 0.3s ease; 
+	transition: color 0.3s ease;
+
+}
+.github:hover {
+	text-decoration: none;
+	color: #69CBE4;
 }
