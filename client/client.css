@@ -168,8 +168,9 @@ h1 {
 .fa {
 	float:right;
 	clear:right;
-	margin-top: -50%;
-	margin-right:-18%;
+	position: fixed;
+   	top: 3%;
+   	right: 2.5%;
 
 	-webkit-transition: color 0.5s ease;
 	-moz-transition: color 0.5s ease;
