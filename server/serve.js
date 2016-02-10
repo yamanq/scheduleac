@@ -28,11 +28,20 @@ Meteor.methods({
 	add_button: function(chrome, pre, post) {
 		if ((Meteor.user() != undefined) && (Meteor.user().services.google.email in allowed) && !(pre === "")) {
 			mymoment = moment(pre.replace("/", "-"), "MM-DD-YYYY");
-			schedule.insert({
-			      "pretext": mymoment.toISOString().split("T")[0],
+			thepretext = mymoment.toISOString().split("T")[0];
+			time = mymoment.format("X");
+			previous = schedule.find({"pretext": thepretext}).fetch();
+			if (previous.length > 0) {
+				entry = previous[0]
+				schedule.update(entry._id, {"aftertext": post, "pretext": entry.pretext, "timestamp": entry.timestamp});
+			} else {
+				schedule.insert({
+			      "pretext": thepretext,
 			      "aftertext": post,
-			      "timestamp": mymoment.format("X")
-			});
+			      "timestamp": time
+				});
+			}
+
 		}
 	},
 	remove: function(chrome) {
