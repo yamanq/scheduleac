@@ -47,8 +47,6 @@ Template.client.events({
 			.css("-ms-transform", "translateX(-59%)")
 			.css("transform", "translateX(-59%)");
 		}
-		
-		
 	}
 });
 
@@ -82,6 +80,11 @@ Template.day.helpers({
 Template.day.events({
 	'click .fa' : function() {
 		Meteor.call('remove', this);
+	},
+
+	'click .eachDay' : function() {
+		var user_id = Session.get('user_id')
+		console.log(user_id);
 	}
 })
 
@@ -141,8 +144,19 @@ Template.sidebar.events({
 	}
 })
 
-function getScale(number) {
-			
+Template.day.rendered = function() {
+	$('.eachDay').each(function ( index ) {
+		$('.eachDay').eq(index)
+		.css("z-index", 100-index)
+		.css("-webkit-transform", "scale(" + getScale(index, 0) + ")")
+		.css("-moz-transform", "scale(" + getScale(index, 0) + ")")
+		.css("-ms-transform", "scale(" + getScale(index, 0) + ")")
+		.css("transform", "scale(" + getScale(index, 0) + ")");
+	})
+}
+
+function getScale(index, start) {
+	return Math.abs(index-start) * -0.2 + 1.5
 }
 
 
