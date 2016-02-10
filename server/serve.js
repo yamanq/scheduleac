@@ -10,10 +10,10 @@ schedule.permit(['insert', 'update', 'remove']).never().apply();
 SyncedCron.add({
 	name: 'Remove Entries past today',
 	schedule: function(parser) {
-		return parser.recur().on('00:00:00').time();
+		return parser.recur().on('07:46:00').time();
 	},
 	job: function() {
-		var today = new Date();
+		var today = moment().format("X");
 
 		// Remove matchng Documents
 		schedule.remove({timestamp: {$lt: today}});
@@ -27,16 +27,11 @@ Meteor.methods({
 
 	add_button: function(chrome, pre, post) {
 		if ((Meteor.user() != undefined) && (Meteor.user().services.google.email in allowed) && !(pre === "")) {
-			madate = pre.split("/");
-			date = new Date();
-			date.setMonth(madate[0]);
-			date.setDate(madate[1]);
-			date.setFullYear(madate[2]);
-			mymoment = moment(pre.replace("/", "-"), "MM-DD-YYYY").toISOString().split("T")[0];
+			mymoment = moment(pre.replace("/", "-"), "MM-DD-YYYY");
 			schedule.insert({
-			      "pretext": mymoment,
+			      "pretext": mymoment.toISOString().split("T")[0],
 			      "aftertext": post,
-			      "timestamp": date
+			      "timestamp": mymoment.format("X")
 			});
 		}
 	},

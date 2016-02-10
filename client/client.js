@@ -22,7 +22,6 @@ Template.client.helpers({
 Template.client.events({
 	"click button": function() {
 		pre = document.getElementById("date").value;
-		console.log(pre);
 		document.getElementById("date").value = "";
 		post = document.getElementById('post').value;
 		Meteor.call('add_button', this, pre, post);
