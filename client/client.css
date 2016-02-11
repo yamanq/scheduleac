@@ -62,13 +62,11 @@ h1 {
 .login-display-name {
 	display: none !important;
 }
-
 .login-button {
 	margin-left: 20% !important;
 	width: 100% !important;
 	height: 28px !important;
 }
-
 .eachDay {
 	position: relative;
 	font-family: Lato;
@@ -91,11 +89,12 @@ h1 {
 }
 
 .eachDay:hover {
-	-webkit-transform: scale(1.05);
-	-moz-transform: scale(1.05);
-	-ms-transform: scale(1.05);
-	transform: scale(1.05);
+	-webkit-transform: scale(1.02);
+	-moz-transform: scale(1.02);
+	-ms-transform: scale(1.02);
+	transform: scale(1.02);
 }
+
 .recent {
 	color: #353535;
 	background-color: #5BEF78;
@@ -118,7 +117,7 @@ h1 {
 
 .pulltab {
 	position:fixed;
-	margin-top:-1%;
+	margin-top:0%;
 	width: 0; 
 	height: 0; 
 	border-top: 40px solid transparent;
@@ -141,7 +140,7 @@ h1 {
 }
 
 .sidebar {
-	position: fixed;
+	position:absolute;
 	min-height:100%;
 
 	background-color: #FF746B;
@@ -166,9 +165,11 @@ h1 {
 }	
 
 .fa {
+	float:right;
+	clear:right;
 	position: absolute;
    	top: 3%;
-   	right: 2.5%;
+   	right: 2.3%;
 
 	-webkit-transition: color 0.5s ease;
 	-moz-transition: color 0.5s ease;
