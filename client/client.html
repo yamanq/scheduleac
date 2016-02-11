@@ -3,7 +3,11 @@
 </head>
 
 <body>
- 	{{> client}}
+	{{#if isDesktop}}
+ 		{{> client}}
+ 	{{else}}
+ 		{{> phone}}
+	{{/if}}
 </body>
 
 
@@ -59,4 +63,9 @@
 				<a class="github" target="_blank" href="https://github.com/yamanq/scheduleac">Github</a>
 			</div>
 	</div>
+</template>
+
+<template name="phone">
+	<p class="type">{{aftertext}} </p><p class="date">{{pretext}} </p>
+	<button class="nextb">Next</button>
 </template>

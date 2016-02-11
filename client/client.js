@@ -3,6 +3,7 @@ var clicked = false;
 allowedu["ybq987@gmail.com"] = true;
 allowedu["dweinger@bloomfield.org"] = true;
 allowedu["ksjdragon@gmail.com"]= true;
+currentcard = 0;
 
 Meteor.subscribe('schedule');
 
@@ -159,5 +160,29 @@ function getScale(index, start) {
 }
 
 
+Template.phone.helpers({
+	pretext: function() {
+		cole = schedule.find({}, {sort: {timestamp: 1}}).fetch();
+		date = moment(cole[currentcard].pretext);
+		date = date.calendar(null, {
+		    sameDay: '[Today]',
+		    nextDay: '[Tomorrow]',
+		    nextWeek: 'dddd',
+		    lastDay: '[Yesterday]',
+		    lastWeek: '[Last] dddd',
+		    sameElse: 'DD/MM/YYYY'
+		});
+		return date
+	},
 
+	aftertext: function() {
+		cole = schedule.find({}, {sort: {timestamp: 1}}).fetch();
+		return cole[currentcard].aftertext;
+	}
+});
 
+Template.phone.events({
+	'click nextb': function() {
+		currentcard += 1;
+	}
+});
