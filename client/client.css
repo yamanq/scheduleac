@@ -68,14 +68,11 @@ h1 {
 	margin-left: 20% !important;
 	width: 100% !important;
 	height: 28px !important;
-	float: right;
 }
 .eachDay {
 	position: relative;
 	font-family: Lato;
-	color: #353535;
 	max-width: 30%;
-	background-color: #136FB5;
 	box-shadow: 4px 5px 3px 2px #444;
 	margin-left: auto;
 	margin-right: auto;
@@ -85,10 +82,10 @@ h1 {
 	padding-left: 3%;
 	padding-right: 5%;
 
-	-webkit-transition: transform 0.5s ease;
-	-moz-transition: transform 0.5s ease;
-	-ms-transition: transform 0.5s ease; 
-	transition: transform 0.5s ease;
+	-webkit-transition: transform 0.5s ease, background-color 0.5s ease;
+	-moz-transition: transform 0.5s ease, background-color 0.5s ease;
+	-ms-transition: transform 0.5s ease, background-color 0.5s ease; 
+	transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 .eachDay:hover {
@@ -101,9 +98,8 @@ h1 {
 .recent {
 	color: #353535;
 	font-size: 160%;
-	background-color: #5BEF78;
-	min-width:40%;
-	max-width:40%;
+	min-width:45%;
+	max-width:45%;
 	padding-top:3%;
 	padding-bottom:3%;
 }
@@ -120,6 +116,14 @@ h1 {
 .date {
 	font-size:250%;
 	padding-top:2%;
+}
+
+.AC {
+	background-color: #5BEF78;
+}
+
+.Health {
+	background-color: #136FB5;
 }
 
 .pulltab {

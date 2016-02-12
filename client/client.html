@@ -19,10 +19,12 @@
 </template>
 
 <template name="recent">
-	<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p>
-	{{#if allowed}}
-		<i class="fa fa-times fa-3x"></i>
-	{{/if}}
+	<div class="recent eachDay {{aftertext}}">
+		<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p>
+		{{#if allowed}}
+			<i class="fa fa-times fa-3x"></i>
+		{{/if}}
+	</div>
 </template>
 
 <template name="client">
@@ -33,13 +35,11 @@
 	<div class="scheduleList">
 
 		{{#each mostrecent}}
-		<div class="recent eachDay">
 			{{> recent}}
-		</div>
 		{{/each}}
 
 		{{#each sched}}
-			<div class="eachDay">
+			<div class="eachDay {{aftertext}}">
 				{{> day}}
 			</div>
 		{{/each}}
