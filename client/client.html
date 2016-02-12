@@ -59,13 +59,15 @@
 			<button id="button">Update!</button>
 			{{/if}}
 			<div class='about'>
-				<p>Developed by Yaman Qalieh and Kenny Jao</p>
+				<p>Developed by Yaman Qalieh</p>
+				<p>Visuals by Kenny Jao</p>
 				<a class="github" target="_blank" href="https://github.com/yamanq/scheduleac">Github</a>
 			</div>
 	</div>
 </template>
 
 <template name="phone">
-	<p class="type">{{aftertext}} </p><p class="date">{{pretext}} </p>
-	<button class="nextb">Next</button>
+	{{#each phone}}
+		{{> recent}}
+	{{/each}}
 </template>

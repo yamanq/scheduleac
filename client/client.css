@@ -18,6 +18,7 @@ body {
 h1 {
 	font-family: Lato;
 	font-size: 300%;
+	margin-left: 4.2%;
 }
 
 #date {
@@ -62,10 +63,12 @@ h1 {
 .login-display-name {
 	display: none !important;
 }
+
 .login-button {
 	margin-left: 20% !important;
 	width: 100% !important;
 	height: 28px !important;
+	float: right;
 }
 .eachDay {
 	position: relative;
@@ -97,8 +100,12 @@ h1 {
 
 .recent {
 	color: #353535;
+	font-size: 160%;
 	background-color: #5BEF78;
-	max-width:30%;
+	min-width:40%;
+	max-width:40%;
+	padding-top:3%;
+	padding-bottom:3%;
 }
 
 .scheduleList {
