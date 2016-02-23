@@ -10,7 +10,7 @@ Meteor.subscribe('schedule');
 Template.client.helpers({
 
 	sched: function() {
-		beforeslice = schedule.find({}, {sort: {timestamp: 1}, limit: 5}).fetch();
+		beforeslice = schedule.find({}, {sort: {timestamp: 1}, limit: 9}).fetch();
 		return beforeslice.slice(1, beforeslice.length);
 	},
 
@@ -162,6 +162,6 @@ function getScale(index, start) {
 
 Template.phone.helpers({
 	phone: function() {
-		return schedule.find({}, {sort: {timestamp: 1}, limit: 1}).fetch();
+		return schedule.find({}, {sort: {timestamp: 1}, limit: 10}).fetch();
 	}
 });
