@@ -25,7 +25,9 @@ Template.client.events({
 		pre = document.getElementById("date").value;
 		document.getElementById("date").value = "";
 		post = document.getElementById('post').value;
-		Meteor.call('add_button', this, pre, post);
+		other = document.getElementById("other").value;
+		document.getElementById("other").value = "";
+		Meteor.call('add_button', this, pre, post, other);
 	},
 
 	"click .pulltab": function() {
@@ -66,6 +68,10 @@ Template.day.helpers({
 
 	aftertext: function() {
 		return this.aftertext;
+	},
+
+	other: function() {
+		return this.other;
 	},
 	
 	allowed: function() {
@@ -110,6 +116,10 @@ Template.recent.helpers({
 
 	aftertext: function() {
 		return this.aftertext;
+	},
+	
+	other: function() {
+		return this.other;
 	},
 
 	allowed: function() {

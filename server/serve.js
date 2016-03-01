@@ -13,10 +13,12 @@ SyncedCron.add({
 		return parser.recur().on('19:35:00').time();
 	},
 	job: function() {
-		var today = moment().format("X");
+		var thedate = moment();
+		var today = thedate.format("X");
 
 		// Remove matchng Documents
 		schedule.remove({timestamp: {$lt: today}});
+		console.log(thedate.format());
 	}
 });
 
@@ -25,7 +27,7 @@ SyncedCron.start();
 
 Meteor.methods({
 
-	add_button: function(chrome, pre, post) {
+	add_button: function(chrome, pre, post, other) {
 		if ((Meteor.user() != undefined) && (Meteor.user().services.google.email in allowed) && !(pre === "")) {
 			mymoment = moment(pre.replace("/", "-"), "MM-DD-YYYY");
 			thepretext = mymoment.toISOString().split("T")[0];
@@ -33,11 +35,12 @@ Meteor.methods({
 			previous = schedule.find({"pretext": thepretext}).fetch();
 			if (previous.length > 0) {
 				entry = previous[0]
-				schedule.update(entry._id, {"aftertext": post, "pretext": entry.pretext, "timestamp": entry.timestamp});
+				schedule.update(entry._id, {"aftertext": post, "pretext": entry.pretext, "other": other, "timestamp": entry.timestamp});
 			} else {
 				schedule.insert({
 			      "pretext": thepretext,
 			      "aftertext": post,
+			      "other": other,
 			      "timestamp": time
 				});
 			}

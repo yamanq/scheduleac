@@ -13,7 +13,7 @@
 
 
 <template name="day">
-	<p class="type">{{aftertext}} </p><p class="date">{{pretext}} </p>
+	<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p> <p class="other">{{other}}</p>
 	{{#if allowed}}
 		<i class="fa fa-times fa-3x"></i>
 	{{/if}}
@@ -21,7 +21,7 @@
 
 <template name="recent">
 	<div class="recent eachDay {{aftertext}}">
-		<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p>
+		<p class="type">{{aftertext}} </p><p class="date">{{pretext}}</p> <p class="other">{{other}}</p>
 		{{#if allowed}}
 			<i class="fa fa-times fa-3x"></i>
 		{{/if}}
@@ -52,12 +52,13 @@
 	<h1>AC/Health Schedule</h1>
 		{{> loginButtons}}
 			{{#if allowed}}
-			<input type="text" class="form-control" id="date">
-			<select id="post">
-			  <option value="AC">AC</option>
-			  <option value="Health">Health</option>
-			</select>
-			<button id="button">Update!</button>
+				<input type="text" class="form-control" id="date" placeholder="date">
+				<select id="post">
+				  <option value="AC">AC</option>
+				  <option value="Health">Health</option>
+				</select>
+				<input type="text" id="other" placeholder="comments">
+				<button id="button">Update!</button>
 			{{/if}}
 			<div class='about'>
 				<p>Developed by Yaman Qalieh</p>
