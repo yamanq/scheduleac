@@ -30,6 +30,17 @@ Template.client.events({
 		Meteor.call('add_button', this, pre, post, other);
 	},
 
+	"keypress input": function(event) {
+        if (event.keyCode === 13) {
+            pre = document.getElementById("date").value;
+			document.getElementById("date").value = "";
+			post = document.getElementById('post').value;
+			other = document.getElementById("other").value;
+			document.getElementById("other").value = "";
+			Meteor.call('add_button', this, pre, post, other);
+        }
+    },
+
 	"click .pulltab": function() {
 		clicked = !clicked;
 		Session.set("sidebar", clicked);
