@@ -75,7 +75,10 @@ Template.day.helpers({
 		    lastWeek: '[Last] dddd',
 		    sameElse: 'MM/DD/YYYY'
 		});
-		return date + " (" + this.day + ")";
+		if (this.day != undefined) {
+			date = date + " (" + this.day + ")"
+		}
+		return date
 	},
 
 	aftertext: function() {
@@ -123,7 +126,10 @@ Template.recent.helpers({
 		    lastWeek: '[Last] dddd',
 		    sameElse: 'MM/DD/YYYY'
 		});
-		return date + " (" + this.day + ")"
+		if (this.day != undefined) {
+			date = date + " (" + this.day + ")"
+		}
+		return date
 	},
 
 	aftertext: function() {
