@@ -10,7 +10,7 @@ schedule.permit(['insert', 'update', 'remove']).never().apply();
 SyncedCron.add({
 	name: 'Remove Entries past today',
 	schedule: function(parser) {
-		return parser.recur().on('19:35:00').time();
+		return parser.recur().on('14:35:00').time();
 	},
 	job: function() {
 		var thedate = moment();
