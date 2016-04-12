@@ -63,9 +63,13 @@
 		{{> loginButtons}}
 			{{#if allowed}}
 				<input type="text" class="form-control" id="date" placeholder="date">
-				<select id="post">
+				<select class='selection' id="post">
 				  <option value="AC">AC</option>
 				  <option value="Health">Health</option>
+				</select>
+				<select class='selection' id="day">
+				  <option value="A">A</option>
+				  <option value="B">B</option>
 				</select>
 				<input type="text" id="other" placeholder="comments">
 				<button id="button">Update!</button>

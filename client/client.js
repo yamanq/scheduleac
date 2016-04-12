@@ -25,9 +25,10 @@ Template.client.events({
 		pre = document.getElementById("date").value;
 		document.getElementById("date").value = "";
 		post = document.getElementById('post').value;
+		day = document.getElementById('day').value;
 		other = document.getElementById("other").value;
 		document.getElementById("other").value = "";
-		Meteor.call('add_button', this, pre, post, other);
+		Meteor.call('add_button', this, pre, post, day, other);
 	},
 
 	"keypress input": function(event) {
@@ -37,7 +38,7 @@ Template.client.events({
 			post = document.getElementById('post').value;
 			other = document.getElementById("other").value;
 			document.getElementById("other").value = "";
-			Meteor.call('add_button', this, pre, post, other);
+			Meteor.call('add_button', this, pre, post, day, other);
         }
     },
 
@@ -74,7 +75,7 @@ Template.day.helpers({
 		    lastWeek: '[Last] dddd',
 		    sameElse: 'MM/DD/YYYY'
 		});
-		return date;
+		return date + " (" + this.day + ")";
 	},
 
 	aftertext: function() {
@@ -122,7 +123,7 @@ Template.recent.helpers({
 		    lastWeek: '[Last] dddd',
 		    sameElse: 'MM/DD/YYYY'
 		});
-		return date
+		return date + " (" + this.day + ")"
 	},
 
 	aftertext: function() {

@@ -39,14 +39,20 @@ h1 {
     padding-left:5%;
 }
 
-#post {
+.selection {
 	font-size: 150%;
-	float: right;
-	display: inline;
-	margin-top: -15.5%;
-	margin-right: 8%;
 	width: 35%;
 	min-height: 50%;
+	float: right;
+	margin-right: 8%;
+}
+
+#post {
+	margin-top: -18%;
+}
+
+#day {
+	margin-top: -4%;
 }
 
 #button {
