@@ -8,7 +8,6 @@ currentcard = 0;
 Meteor.subscribe('schedule');
 
 Template.client.helpers({
-
     sched: function() {
         beforeslice = schedule.find({}, {
             sort: {
@@ -18,7 +17,6 @@ Template.client.helpers({
         }).fetch();
         return beforeslice.slice(1, beforeslice.length);
     },
-
     mostrecent: function() {
         return schedule.find({}, {
             sort: {
@@ -40,7 +38,6 @@ Template.client.events({
         document.getElementById("other").value = "";
         Meteor.call('add_button', this, pre, post, day, other);
     },
-
     "keypress input": function(event) {
         if (event.keyCode === 13) {
             pre = document.getElementById("date").value;
@@ -51,7 +48,6 @@ Template.client.events({
             Meteor.call('add_button', this, pre, post, day, other);
         }
     },
-
     "click .pulltab": function() {
         clicked = !clicked;
         Session.set("sidebar", clicked);
@@ -62,7 +58,6 @@ Template.client.events({
                 .css("-moz-transform", "translateX(117%)")
                 .css("-ms-transform", "translateX(117%)")
                 .css("transform", "translateX(117%)");
-
         } else {
             $(".pulltab").css("border-left", "40px solid #FF746B").css("margin-left", "0");
             $(".scale")
@@ -90,21 +85,14 @@ Template.day.helpers({
         }
         return date
     },
-
     aftertext: function() {
         return this.aftertext;
     },
-
     other: function() {
         return this.other;
     },
-
     allowed: function() {
-        if (!(Meteor.user() === undefined) && Meteor.user().services.google.email in allowedu) {
-            return true;
-        } else {
-            return false;
-        }
+        return (Meteor.user() !== undefined && Meteor.user().services.google.email in allowedu);
     }
 });
 
@@ -112,7 +100,6 @@ Template.day.events({
     'click .fa': function() {
         Meteor.call('remove', this);
     },
-
     'click .eachDay': function() {
         var user_id = Session.get('user_id')
         console.log(user_id);
@@ -141,15 +128,12 @@ Template.recent.helpers({
         }
         return date
     },
-
     aftertext: function() {
         return this.aftertext;
     },
-
     other: function() {
         return this.other;
     },
-
     allowed: function() {
         if (!(Meteor.user() === undefined) && Meteor.user().services.google.email in allowedu) {
             return true;
@@ -196,7 +180,6 @@ Template.sidebar.events({
 function getScale(index, start) {
 	return Math.abs(index-start) * -0.2 + 1.5
 }*/
-
 
 Template.phone.helpers({
     phone: function() {
